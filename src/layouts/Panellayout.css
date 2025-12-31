@@ -1,0 +1,22 @@
+.panel-layout {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e0e0e0;
+}
+
+.sideBar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: #f1a4a4;
+}
+
+.main {
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  background-color: aqua;
+  right: 250px;
+  position: relative;
+}
