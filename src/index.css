@@ -1,6 +1,15 @@
+@font-face {
+  font-family: "iranSans";
+  src: url("./assets/fonts/IRANSans.woff");
+}
+
 :root {
   --color-1: #05050c;
   --color-2: #0f1021;
+  --color-3: #b778f0;
+  --color-4: #242534;
+  --color-5: #6a6d9e;
+  --color-6: #fff;
   --br: 12px;
 }
 
@@ -19,6 +28,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: "iranSans";
+  direction: rtl;
 }
 
 h1 {
@@ -43,6 +54,10 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  font-family: inherit;
 }
 
 @media (prefers-color-scheme: light) {

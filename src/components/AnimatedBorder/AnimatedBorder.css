@@ -20,7 +20,7 @@
   top: var(--y, 50%);
   left: var(--x, 50%);
   transform: translate(-50%, -50%);
-  background: radial-gradient(#b778f0, transparent, transparent);
+  background: radial-gradient(var(--color-3), transparent, transparent);
   width: 200%;
   height: 200%;
   opacity: 0;
