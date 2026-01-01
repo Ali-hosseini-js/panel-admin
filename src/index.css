@@ -3,6 +3,10 @@
   src: url("./assets/fonts/IRANSans.woff");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --color-1: #05050c;
   --color-2: #0f1021;
@@ -10,6 +14,8 @@
   --color-4: #242534;
   --color-5: #6a6d9e;
   --color-6: #fff;
+  --color-7: #b0b0b1;
+  --color-8: #b878f051;
   --br: 12px;
 }
 
@@ -38,22 +44,14 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: var(--br);
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 input {

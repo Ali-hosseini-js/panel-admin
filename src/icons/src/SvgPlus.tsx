@@ -1,0 +1,15 @@
+export const SvgPlus = ({ className }: { className: string }) => {
+  return (
+    <>
+      <svg
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        transform=""
+        id="injected-svg"
+        className={className}
+      >
+        <path d="M3 13h8v8h2v-8h8v-2h-8V3h-2v8H3z"></path>
+      </svg>{" "}
+    </>
+  );
+};
