@@ -3,6 +3,8 @@ import { SvgLogo } from "../icons/src/SvgLogo";
 import { SvgPlus } from "../icons/src/SvgPlus";
 import "./Sidebar.css";
 import { menu, type SubMenuItem } from "../constants/layout-const";
+import { ProfileSidebar } from "./ProfileSidebar";
+import { ThemSidebar } from "./ThemSidebar";
 
 type SidebarProps = {
   handleSidebar: boolean;
@@ -56,6 +58,12 @@ export const Sidebar = ({ handleSidebar }: SidebarProps) => {
             ))}
           </ul>
         </div>
+        {!handleSidebar && (
+          <>
+            <ProfileSidebar />
+            <ThemSidebar />
+          </>
+        )}
       </div>
     </>
   );

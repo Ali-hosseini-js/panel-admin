@@ -200,3 +200,89 @@
     cursor: pointer;
   }
 }
+
+.sidebar-profile {
+  width: 100%;
+  padding-inline: 20px;
+}
+
+.sidebar-profile-inner {
+  width: 100%;
+  background-color: var(--color-2);
+  border-radius: var(--br);
+  padding: 10px;
+  & button {
+    width: 100%;
+    height: 45px;
+    border: 1px solid var(--color-3);
+    color: var(--color-3);
+    background-color: transparent;
+    margin-top: 10px;
+    &:hover {
+      background-color: var(--color-3);
+      color: var(--color-1);
+    }
+  }
+}
+
+.sidebar-profile-top {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-7);
+  border-radius: 10px;
+  & img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    & span:nth-of-type(1) {
+      color: var(--color-6);
+    }
+  }
+  &:hover {
+    background-color: var(--color-1);
+  }
+}
+
+.sidebar-theme {
+  width: 100%;
+  padding-inline: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-theme-inner {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--color-2);
+  border-radius: var(--br);
+  display: flex;
+  & button {
+    width: 50%;
+    height: 45px;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    color: var(--color-7);
+  }
+}
+
+.sidebar-theme-inner-btn-active {
+  background-color: var(--color-3) !important;
+  color: var(--color-1) !important;
+}
+
+.sidebar-theme-label {
+  color: var(--color-7);
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+}
