@@ -16,8 +16,8 @@ export const SvgLogo = ({ className }: { className: string }) => {
             y2="41.1154506%"
             id="linearGradient-1"
           >
-            <stop stop-color="#D83333" offset="0%"></stop>
-            <stop stop-color="#F041FF" offset="100%"></stop>
+            <stop stopColor="#D83333" offset="0%"></stop>
+            <stop stopColor="#F041FF" offset="100%"></stop>
           </linearGradient>
         </defs>
         <g>

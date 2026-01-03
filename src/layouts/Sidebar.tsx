@@ -5,16 +5,17 @@ import "./Sidebar.css";
 import { menu, type SubMenuItem } from "../constants/layout-const";
 import { ProfileSidebar } from "./ProfileSidebar";
 import { ThemSidebar } from "./ThemSidebar";
-
-type SidebarProps = {
-  handleSidebar: boolean;
-};
+import { SvgMenu } from "../icons/src/SvgMenu";
+import type { HandleSidebarProps } from "./types/handleProps.type";
 
 type SubMenuProps = {
   submenuData: SubMenuItem[];
 };
 
-export const Sidebar = ({ handleSidebar }: SidebarProps) => {
+export const Sidebar = ({
+  handleSidebar,
+  setHandleSidebar,
+}: HandleSidebarProps) => {
   const [activeSubMenu, setActiveSubMenu] = useState<number>(-1);
 
   const handleSubmenu = (index: number) => {
@@ -30,6 +31,12 @@ export const Sidebar = ({ handleSidebar }: SidebarProps) => {
         <div className="sidebar-head">
           <SvgLogo className="" />
           <h2>BrandName</h2>
+          <button
+            className="main-btn"
+            onClick={() => setHandleSidebar((prev) => !prev)}
+          >
+            <SvgMenu className="" />
+          </button>
         </div>
         <div className="sidebar-center">
           <button className="sidebar-center-new-project">

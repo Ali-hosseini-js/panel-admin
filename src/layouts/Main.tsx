@@ -1,20 +1,14 @@
-type MainProps = {
-  handleSidebar: boolean;
-  setHandleSidebar: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { MainHeader } from "./MainHeader";
+import type { HandleSidebarProps } from "./types/handleProps.type";
 
-export const Main = ({ handleSidebar, setHandleSidebar }: MainProps) => {
+export const Main = ({
+  handleSidebar,
+  setHandleSidebar,
+}: HandleSidebarProps) => {
   return (
     <>
       <main className={`main ${handleSidebar ? "main-increase" : ""}`}>
-        <div className="main-header">
-          <button
-            className="main-btn"
-            onClick={() => setHandleSidebar((prev) => !prev)}
-          >
-            open | close
-          </button>
-        </div>
+        <MainHeader setHandleSidebar={setHandleSidebar} />
       </main>
     </>
   );

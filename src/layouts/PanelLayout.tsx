@@ -8,7 +8,10 @@ export const PanelLayout = () => {
   return (
     <>
       <div className="panel-layout">
-        <Sidebar handleSidebar={handleSidebar} />
+        <Sidebar
+          handleSidebar={handleSidebar}
+          setHandleSidebar={setHandleSidebar}
+        />
         <Main
           handleSidebar={handleSidebar}
           setHandleSidebar={setHandleSidebar}

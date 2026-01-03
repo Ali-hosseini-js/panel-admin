@@ -34,6 +34,19 @@
   & svg {
     width: 45px;
   }
+  & button {
+    background-color: transparent;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    & svg {
+      color: var(--color-3);
+      width: 30px;
+    }
+    @media (width < 767px) {
+      display: flex;
+    }
+  }
 }
 
 .sidebar-center {
