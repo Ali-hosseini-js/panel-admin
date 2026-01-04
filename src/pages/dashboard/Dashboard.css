@@ -1,0 +1,44 @@
+.dashboard {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.dash-right {
+  width: 70%;
+}
+
+.dash-right-summary {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+}
+
+.dash-right-summary-item {
+  flex: 1 1 calc(25% - 30px);
+  height: 250px;
+  border: 1px solid var(--color-4);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-right-summary-item-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: var(--color-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & svg {
+    width: 30px;
+    fill: var(--color-1);
+  }
+}
+
+.dash-left {
+  width: 30%;
+}

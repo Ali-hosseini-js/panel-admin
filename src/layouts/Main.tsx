@@ -14,15 +14,17 @@ export const Main = ({
     <>
       <main className={`main ${handleSidebar ? "main-increase" : ""}`}>
         <MainHeader setHandleSidebar={setHandleSidebar} />
-        {children}
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route
-            path="/application/management"
-            element={<ApplicationManagement />}
-          />
-        </Routes>
+        <div className="main-container">
+          {children}
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route
+              path="/application/management"
+              element={<ApplicationManagement />}
+            />
+          </Routes>
+        </div>
       </main>
     </>
   );
