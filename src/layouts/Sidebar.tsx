@@ -7,9 +7,14 @@ import { ProfileSidebar } from "./ProfileSidebar";
 import { ThemSidebar } from "./ThemSidebar";
 import { SvgMenu } from "../icons/src/SvgMenu";
 import type { HandleSidebarProps } from "./types/handleProps.type";
+import { useNavigate } from "react-router-dom";
+
+export type HandleRouteFn = (index: number, item: string | undefined) => void;
 
 type SubMenuProps = {
   submenuData: SubMenuItem[];
+  handleRoute: HandleRouteFn;
+  parentIndex: number;
 };
 
 export const Sidebar = ({
@@ -17,14 +22,17 @@ export const Sidebar = ({
   setHandleSidebar,
 }: HandleSidebarProps) => {
   const [activeSubMenu, setActiveSubMenu] = useState<number>(-1);
+  const navigate = useNavigate();
 
-  const handleSubmenu = (index: number) => {
-    if (activeSubMenu == index) {
-      setActiveSubMenu(-1);
-    } else {
+  const handleRoute = (index: number, item: string | undefined) => {
+    if (item) {
+      navigate(item);
       setActiveSubMenu(index);
+      return;
     }
+    setActiveSubMenu((prev) => (prev === index ? -1 : index));
   };
+
   return (
     <>
       <div className={`sidebar ${handleSidebar && "sidebar-handle"}`}>
@@ -51,14 +59,22 @@ export const Sidebar = ({
                   activeSubMenu == index && "sidebar-center-item-active"
                 }`}
               >
-                <button onClick={() => handleSubmenu(index)}>
+                <button onClick={() => handleRoute(index, item.path)}>
                   {item.icon}
                   <span>{item.title}</span>
                 </button>
                 {item.submenu && (
                   <>
-                    <SubMenu submenuData={item.submenu} />
-                    <SideMenu submenuData={item.submenu} />
+                    <SubMenu
+                      submenuData={item.submenu}
+                      handleRoute={handleRoute}
+                      parentIndex={index}
+                    />
+                    <SideMenu
+                      submenuData={item.submenu}
+                      handleRoute={handleRoute}
+                      parentIndex={index}
+                    />
                   </>
                 )}
               </li>
@@ -76,11 +92,15 @@ export const Sidebar = ({
   );
 };
 
-const SubMenu = ({ submenuData }: SubMenuProps) => {
+const SubMenu = ({ submenuData, handleRoute, parentIndex }: SubMenuProps) => {
   return (
     <div className="sidebar-center-item-submenu">
       {submenuData.map((item, index) => (
-        <div className="sidebar-center-item-submenu-item" key={index}>
+        <div
+          onClick={() => handleRoute(parentIndex, item.path)}
+          className="sidebar-center-item-submenu-item"
+          key={index}
+        >
           {item.title}
         </div>
       ))}
@@ -88,11 +108,15 @@ const SubMenu = ({ submenuData }: SubMenuProps) => {
   );
 };
 
-const SideMenu = ({ submenuData }: SubMenuProps) => {
+const SideMenu = ({ submenuData, handleRoute, parentIndex }: SubMenuProps) => {
   return (
     <div className="sidebar-center-item-sideMenu">
       {submenuData.map((item, index) => (
-        <div className="sidebar-center-item-sideMenu-item" key={index}>
+        <div
+          onClick={() => handleRoute(parentIndex, item.path)}
+          className="sidebar-center-item-sideMenu-item"
+          key={index}
+        >
           {item.title}
         </div>
       ))}

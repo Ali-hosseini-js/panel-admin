@@ -4,11 +4,13 @@ import ImgProfile from "../assets/media/profile.jpeg";
 import type { HandleSidebarProps } from "./types/handleProps.type";
 import { useState } from "react";
 import { DropDownSettings } from "./DropDownSettings";
+import { useLayoutStore } from "../store/LayoutStore";
 
 export const MainHeader = ({
   setHandleSidebar,
 }: Pick<HandleSidebarProps, "setHandleSidebar">) => {
   const [visibleDrop, setVisibleDrop] = useState<boolean>(false);
+  const { titlePage } = useLayoutStore();
 
   return (
     <>
@@ -20,7 +22,7 @@ export const MainHeader = ({
           >
             <SvgMenu className="" />
           </button>
-          <p>داشبورد</p>
+          <p>{titlePage}</p>
         </div>
         <form className="main-header-center">
           <input placeholder="جستجو کنید" />

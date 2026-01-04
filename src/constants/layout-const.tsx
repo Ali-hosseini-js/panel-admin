@@ -6,29 +6,27 @@ import { SvgTool } from "../icons/src/SvgTool";
 
 export type SubMenuItem = {
   title: string;
+  path?: string;
 };
 
-type MenuItem = {
+export type MenuItem = {
   title: string;
   icon: React.ReactNode;
-  submenu: SubMenuItem[];
+  submenu?: SubMenuItem[];
+  path?: string;
 };
 
 export const menu: MenuItem[] = [
   {
     title: "داشبورد",
     icon: <SvgDashboard className="" />,
-    submenu: [
-      { title: "صفحه اول" },
-      { title: "صفحه دوم" },
-      { title: "صفحه سوم" },
-    ],
+    path: "/p/dashboard",
   },
   {
     title: "اپلیکیشن",
     icon: <SvgApplication className="" />,
     submenu: [
-      { title: "صفحه اول" },
+      { title: "مدیریت اپلیکیشن", path: "/p/application/management" },
       { title: "صفحه دوم" },
       { title: "صفحه سوم" },
     ],
@@ -55,6 +53,6 @@ export const menu: MenuItem[] = [
   {
     title: "تنظیمات",
     icon: <SvgSetting className="" />,
-    submenu: [{ title: "صفحه اول" }, { title: "صفحه دوم" }],
+    path: "/p/settings",
   },
 ];

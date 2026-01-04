@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { SvgUser } from "../icons/src/SvgUser";
+import { SvgLogout } from "../icons/src/SvgLogout";
+import { useLayoutStore } from "../store/LayoutStore";
 
 type LangState = "fa" | "en" | "fr";
-type ThemeState = "light" | "dark";
 
 type LangListItem = {
   title: string;
@@ -18,7 +20,7 @@ export const DropDownSettings = ({
   setVisibleDrop,
 }: DropDownProps) => {
   const [lang, setLang] = useState<LangState>("fa");
-  const [theme, setTheme] = useState<ThemeState>("light");
+  const { theme, setTheme } = useLayoutStore();
 
   const langList: Array<LangListItem> = [
     { title: "فارسی", symbol: "fa" },
@@ -65,6 +67,16 @@ export const DropDownSettings = ({
           >
             تاریک
           </button>
+        </div>
+        <div className="drop-setting-bottom">
+          <div className="drop-setting-bottom-item">
+            <SvgUser className="" />
+            <span>پروفایل</span>
+          </div>
+          <div className="drop-setting-bottom-item">
+            <SvgLogout className="" />
+            <span>خروج</span>
+          </div>
         </div>
       </div>
     </>

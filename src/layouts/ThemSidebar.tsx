@@ -1,9 +1,7 @@
-import { useState } from "react";
-
-type ThemeState = "light" | "dark";
+import { useLayoutStore } from "../store/LayoutStore";
 
 export const ThemSidebar = () => {
-  const [theme, setTheme] = useState<ThemeState>("light");
+  const { theme, setTheme } = useLayoutStore();
 
   return (
     <div className="sidebar-theme">

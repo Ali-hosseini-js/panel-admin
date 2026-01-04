@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Auth />} />
-          <Route path="/p" element={<PanelLayout />} />
+          <Route path="/p/*" element={<PanelLayout />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,0 +1,16 @@
+export const SvgLogout = ({ className }: { className: string }) => {
+  return (
+    <>
+      <svg
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        transform=""
+        id="injected-svg"
+        className={className}
+      >
+        <path d="M15 11H8v2h7v4l6-5-6-5z"></path>
+        <path d="M5 21h7v-2H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2"></path>
+      </svg>{" "}
+    </>
+  );
+};
