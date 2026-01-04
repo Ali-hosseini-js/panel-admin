@@ -4,7 +4,7 @@ export const DashboardSummary = () => {
   return (
     <>
       <div className="dash-right-summary">
-        {[0, 0, 0, 0].map((item, index) => (
+        {[0, 0, 0, 0].map((index) => (
           <div key={index} className="dash-right-summary-item">
             <div className="dash-right-summary-item-icon">
               <SvgDashboard className="" />
