@@ -23,11 +23,11 @@ export const menu: MenuItem[] = [
     path: "/p/dashboard",
   },
   {
-    title: "اپلیکیشن",
+    title: "محصولات",
     icon: <SvgApplication className="" />,
     submenu: [
-      { title: "مدیریت اپلیکیشن", path: "/p/application/management" },
-      { title: "صفحه دوم" },
+      { title: "مدیریت محصولات", path: "/p/product/management" },
+      { title: "افزودن محصولات" },
       { title: "صفحه سوم" },
     ],
   },

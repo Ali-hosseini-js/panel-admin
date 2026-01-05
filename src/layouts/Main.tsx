@@ -3,7 +3,7 @@ import { MainHeader } from "./MainHeader";
 import type { HandleSidebarProps } from "./types/handleProps.type";
 import { Dashboard } from "../pages/dashboard/Dashboard";
 import { Settings } from "../pages/settings/Settings";
-import { ApplicationManagement } from "../pages/application/management/ApplicationManagement";
+import { ProductManagement } from "../pages/product/management/ProductManagement";
 
 export const Main = ({
   handleSidebar,
@@ -19,10 +19,7 @@ export const Main = ({
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/settings" element={<Settings />} />
-            <Route
-              path="/application/management"
-              element={<ApplicationManagement />}
-            />
+            <Route path="/product/management" element={<ProductManagement />} />
           </Routes>
         </div>
       </main>
