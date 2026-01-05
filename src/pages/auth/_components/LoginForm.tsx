@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { SvgEmail } from "../../../icons/src/SvgEmail";
 import { SvgPassword } from "../../../icons/src/SvgPassword";
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
+
+  const handleRoute = () => {
+    navigate("/p");
+  };
+
   return (
     <>
       <form className="auth-form">
@@ -18,7 +25,9 @@ export const LoginForm = () => {
           <input type="password" placeholder="پسورد خود را وارد کنید." />
         </label>
 
-        <button className="auth-form-btn">ورود</button>
+        <button onClick={() => handleRoute()} className="auth-form-btn">
+          ورود
+        </button>
       </form>
     </>
   );
