@@ -33,7 +33,11 @@ export const RegisterForm = () => {
           <input type="password" placeholder="پسورد خود را وارد کنید." />
         </label>
 
-        <button onClick={() => handleRoute()} className="auth-form-btn">
+        <button
+          type="button"
+          onClick={() => handleRoute()}
+          className="auth-form-btn"
+        >
           ثبت نام
         </button>
       </form>
