@@ -3,17 +3,42 @@ import { SvgSearch } from "../../../../icons/src/SvgSearch";
 import DatePicker, { DateObject } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+import { useSearchParams } from "react-router-dom";
 
 type Status = "active" | "deactive" | "all";
 
-export const ProductFilter = () => {
-  const [status, setstatus] = useState<Status>("all");
-  const [value, setValue] = useState<DateObject[]>([
-    new DateObject(),
-    new DateObject(),
-  ]);
+type FilterProps = {
+  search: string;
+  status: string;
+  start: string;
+  end: string;
+};
 
-  useEffect(() => {
+export const ProductFilter = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [filter, setFilter] = useState<FilterProps>({
+    search: searchParams.get("search") || "",
+    status: searchParams.get("status") || "all",
+    start: searchParams.get("start") || "",
+    end: searchParams.get("end") || "",
+  });
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newSearch = e.target.value;
+    setFilter((prev) => ({
+      ...prev,
+      search: newSearch,
+    }));
+  };
+
+  const handleStatus = (newStatus: Status) => {
+    setFilter((prev) => ({
+      ...prev,
+      status: newStatus,
+    }));
+  };
+
+  const handleDate = (value: DateObject[]) => {
     if (value && value.length === 2) {
       const [start, end] = value;
 
@@ -22,39 +47,65 @@ export const ProductFilter = () => {
         start.format("YYYY/MM/DD"),
         end.format("YYYY/MM/DD")
       );
+      setFilter((prev) => ({
+        ...prev,
+        start: start?.format("YYYY/MM/DD"),
+        end: end?.format("YYYY/MM/DD"),
+      }));
     }
-  }, [value]);
+  };
+
+  useEffect(() => {
+    const validParams: Partial<Record<keyof FilterProps, string>> = {};
+
+    for (const key in filter) {
+      const typedKey = key as keyof FilterProps;
+      const value = filter[typedKey];
+
+      if (value) {
+        validParams[typedKey] = value;
+      }
+    }
+
+    setSearchParams(validParams as Record<string, string>);
+  }, [filter]);
+  console.log(filter);
 
   return (
     <>
       <div className="product-filter">
         <div className="product-filter-search">
-          <input type="text" placeholder="جستجو..." />
+          <input
+            value={filter.search}
+            onChange={handleSearch}
+            type="text"
+            placeholder="جستجو..."
+          />
           <div>
             <SvgSearch className="" />
           </div>
         </div>
         <div className="product-filter-status">
           <button
-            onClick={() => setstatus("active")}
+            onClick={() => handleStatus("active")}
             className={`product-filter-status-btn ${
-              status == "active" && "product-filter-status-btn-active"
+              filter.status == "active" && "product-filter-status-btn-active"
             }`}
           >
             فعال
           </button>
           <button
-            onClick={() => setstatus("deactive")}
+            onClick={() => handleStatus("deactive")}
             className={`product-filter-status-btn ${
-              status == "deactive" && "product-filter-status-btn-active"
+              filter.status == "deactive" && "product-filter-status-btn-active"
             }`}
           >
             غیر فعال
           </button>
           <button
-            onClick={() => setstatus("all")}
+            onClick={() => handleStatus("all")}
             className={`product-filter-status-btn ${
-              status == "all" && "product-filter-status-btn-active"
+              filter.status == "all" && "product-filter-status-btn-active"
             }`}
           >
             همه
@@ -65,8 +116,9 @@ export const ProductFilter = () => {
             range
             calendar={persian}
             locale={persian_fa}
-            value={value}
-            onChange={setValue}
+            value={[filter.start, filter.end]}
+            onChange={handleDate}
+            placeholder="انتخاب تاریخ"
           />
         </div>
       </div>
