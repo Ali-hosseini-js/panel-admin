@@ -1,20 +1,22 @@
+import { useTheme } from "../hooks/theme-hooks";
 import { useLayoutStore } from "../store/LayoutStore";
 
 export const ThemSidebar = () => {
-  const { theme, setTheme } = useLayoutStore();
+  const { theme } = useLayoutStore();
+  const { handleTheme } = useTheme();
 
   return (
     <div className="sidebar-theme">
       <div className="sidebar-theme-inner">
         <button
           className={`${theme === "light" && "sidebar-theme-inner-btn-active"}`}
-          onClick={() => setTheme("light")}
+          onClick={() => handleTheme("light")}
         >
           روشن
         </button>
         <button
           className={`${theme === "dark" && "sidebar-theme-inner-btn-active"}`}
-          onClick={() => setTheme("dark")}
+          onClick={() => handleTheme("dark")}
         >
           تاریک
         </button>
