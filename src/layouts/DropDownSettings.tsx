@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { SvgUser } from "../icons/src/SvgUser";
 import { SvgLogout } from "../icons/src/SvgLogout";
 import { useLayoutStore } from "../store/LayoutStore";
 import { useTheme } from "../hooks/theme-hooks";
+import { useLang } from "../hooks/lang-hooks";
 
 type LangState = "fa" | "en" | "fr";
+type DirectionState = "ltr" | "rtl";
 
-type LangListItem = {
+export type LangListItem = {
   title: string;
   symbol: LangState;
+  direction: DirectionState;
 };
 
 type DropDownProps = {
@@ -20,15 +23,21 @@ export const DropDownSettings = ({
   visibleDrop,
   setVisibleDrop,
 }: DropDownProps) => {
-  const [lang, setLang] = useState<LangState>("fa");
-  const { theme } = useLayoutStore();
+  const { theme, lang } = useLayoutStore();
   const { handleTheme } = useTheme();
+  const { handleLang } = useLang();
 
   const langList: Array<LangListItem> = [
-    { title: "فارسی", symbol: "fa" },
-    { title: "انگلیسی", symbol: "en" },
-    { title: "فرانسوی", symbol: "fr" },
+    { title: "فارسی", symbol: "fa", direction: "rtl" },
+    { title: "انگلیسی", symbol: "en", direction: "ltr" },
   ];
+
+  useEffect(() => {
+    const currentLang = langList.find((l) => l.symbol === lang);
+    if (currentLang) {
+      document.documentElement.setAttribute("dir", currentLang.direction);
+    }
+  }, [lang]);
 
   return (
     <>
@@ -43,7 +52,7 @@ export const DropDownSettings = ({
           {langList.map((item, index) => (
             <button
               key={index}
-              onClick={() => setLang(item.symbol)}
+              onClick={() => handleLang(item)}
               className={`drop-setting-top-item ${
                 lang == item.symbol && "drop-setting-top-item-active"
               }`}

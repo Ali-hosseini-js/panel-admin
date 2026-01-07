@@ -43,7 +43,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: "iranSans";
-  direction: rtl;
   color: var(--color-6);
 }
 

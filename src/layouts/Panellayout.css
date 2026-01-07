@@ -8,14 +8,14 @@
   width: calc(100% - 250px);
   min-height: 100vh;
   background-color: var(--color-1);
-  right: 250px;
+  inset-inline-start: 250px;
   position: relative;
   transition: all 0.3s;
 }
 
 .main-increase {
   width: calc(100% - 60px);
-  right: 60px;
+  inset-inline-start: 60px;
 }
 
 @media (width < 767px) {
@@ -133,7 +133,7 @@
 .drop-settings {
   width: 200px;
   top: -20px;
-  left: -20px;
+  inset-inline-end: -20px;
   background-color: var(--color-2);
   z-index: 50;
   position: fixed;
@@ -148,7 +148,7 @@
   opacity: 1;
   visibility: visible;
   top: 30px;
-  left: 30px;
+  inset-inline-end: 30px;
 }
 
 .drop-setting-top {

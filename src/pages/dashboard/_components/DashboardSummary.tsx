@@ -1,6 +1,8 @@
 import { SvgDashboard } from "../../../icons/src/SvgDashboard";
+import { useTranslation } from "react-i18next";
 
 export const DashboardSummary = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="dash-right-summary">
@@ -10,7 +12,7 @@ export const DashboardSummary = () => {
               <SvgDashboard className="" />
             </div>
             <div className="dash-right-summary-item-description">
-              <p>میزان فروش</p>
+              <p>{t("sale")}</p>
               <h4>120,000 تومان</h4>
               <span>25%</span>
             </div>
