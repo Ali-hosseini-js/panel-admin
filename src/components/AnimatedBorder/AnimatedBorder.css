@@ -4,6 +4,9 @@
   background-color: var(--color-2);
   position: relative;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .animated-border {

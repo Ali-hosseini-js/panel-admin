@@ -27,8 +27,7 @@ export const menu: MenuItem[] = [
     icon: <SvgApplication className="" />,
     submenu: [
       { title: "مدیریت محصولات", path: "/p/product/management" },
-      { title: "افزودن محصولات" },
-      { title: "صفحه سوم" },
+      { title: "افزودن محصولات", path: "/p/product/add" },
     ],
   },
   {

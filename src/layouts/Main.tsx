@@ -4,6 +4,7 @@ import type { HandleSidebarProps } from "./types/handleProps.type";
 import { Dashboard } from "../pages/dashboard/Dashboard";
 import { Settings } from "../pages/settings/Settings";
 import { ProductManagement } from "../pages/product/management/ProductManagement";
+import { ProductAdd } from "../pages/product/add/ProductAdd";
 
 export const Main = ({
   handleSidebar,
@@ -20,6 +21,7 @@ export const Main = ({
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/product/management" element={<ProductManagement />} />
+            <Route path="/product/add" element={<ProductAdd />} />
           </Routes>
         </div>
       </main>
