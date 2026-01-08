@@ -8,6 +8,8 @@ import { ThemSidebar } from "./ThemSidebar";
 import { SvgMenu } from "../icons/src/SvgMenu";
 import type { HandleSidebarProps } from "./types/handleProps.type";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 export type HandleRouteFn = (index: number, item: string | undefined) => void;
 
@@ -23,6 +25,7 @@ export const Sidebar = ({
 }: HandleSidebarProps) => {
   const [activeSubMenu, setActiveSubMenu] = useState<number>(-1);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleRoute = (index: number, item: string | undefined) => {
     if (item) {
@@ -49,7 +52,7 @@ export const Sidebar = ({
         <div className="sidebar-center">
           <button className="sidebar-center-new-project">
             <SvgPlus className="" />
-            <span>پروژه جدید</span>
+            <span>{t("layout.new_project_btn")}</span>
           </button>
           <ul>
             {menu.map((item, index) => (
@@ -61,7 +64,7 @@ export const Sidebar = ({
               >
                 <button onClick={() => handleRoute(index, item.path)}>
                   {item.icon}
-                  <span>{item.title}</span>
+                  <span>{t(item.title)}</span>
                 </button>
                 {item.submenu && (
                   <>
@@ -101,7 +104,7 @@ const SubMenu = ({ submenuData, handleRoute, parentIndex }: SubMenuProps) => {
           className="sidebar-center-item-submenu-item"
           key={index}
         >
-          {item.title}
+          {t(item.title)}
         </div>
       ))}
     </div>
@@ -117,7 +120,7 @@ const SideMenu = ({ submenuData, handleRoute, parentIndex }: SubMenuProps) => {
           className="sidebar-center-item-sideMenu-item"
           key={index}
         >
-          {item.title}
+          {t(item.title)}
         </div>
       ))}
     </div>

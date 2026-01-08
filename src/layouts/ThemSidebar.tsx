@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { useTheme } from "../hooks/theme-hooks";
 import { useLayoutStore } from "../store/LayoutStore";
 
@@ -12,17 +13,17 @@ export const ThemSidebar = () => {
           className={`${theme === "light" && "sidebar-theme-inner-btn-active"}`}
           onClick={() => handleTheme("light")}
         >
-          روشن
+          {t("layout.light_theme_btn")}
         </button>
         <button
           className={`${theme === "dark" && "sidebar-theme-inner-btn-active"}`}
           onClick={() => handleTheme("dark")}
         >
-          تاریک
+          {t("layout.dark_theme_btn")}
         </button>
       </div>
       <span className="sidebar-theme-label">
-        توسعه داده شده توسط Ali-Hosseini
+        {t("utils.develop")} Ali-Hosseini
       </span>
     </div>
   );

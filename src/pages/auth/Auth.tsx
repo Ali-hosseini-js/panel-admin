@@ -4,6 +4,7 @@ import { SvgLogo } from "../../icons/src/SvgLogo";
 import "./Auth.css";
 import { LoginForm } from "./_components/LoginForm";
 import { RegisterForm } from "./_components/RegisterForm";
+import { t } from "i18next";
 
 export const Auth = () => {
   const [formType, setFormtype] = useState<"login" | "register">("login");
@@ -20,7 +21,7 @@ export const Auth = () => {
               }`}
               onClick={() => setFormtype("login")}
             >
-              ورود
+              {t("auth.login_btn")}
             </button>
             <button
               className={`auth-switch-btn ${
@@ -28,7 +29,7 @@ export const Auth = () => {
               }`}
               onClick={() => setFormtype("register")}
             >
-              ثبت نام
+              {t("auth.signup_btn")}
             </button>
           </div>
           {formType == "login" && <LoginForm />}

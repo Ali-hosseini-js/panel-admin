@@ -4,6 +4,7 @@ import { SvgLogout } from "../icons/src/SvgLogout";
 import { useLayoutStore } from "../store/LayoutStore";
 import { useTheme } from "../hooks/theme-hooks";
 import { useLang } from "../hooks/lang-hooks";
+import { t } from "i18next";
 
 type LangState = "fa" | "en" | "fr";
 type DirectionState = "ltr" | "rtl";
@@ -29,7 +30,7 @@ export const DropDownSettings = ({
 
   const langList: Array<LangListItem> = [
     { title: "فارسی", symbol: "fa", direction: "rtl" },
-    { title: "انگلیسی", symbol: "en", direction: "ltr" },
+    { title: "English", symbol: "en", direction: "ltr" },
   ];
 
   useEffect(() => {
@@ -68,7 +69,7 @@ export const DropDownSettings = ({
             }`}
             onClick={() => handleTheme("light")}
           >
-            روشن
+            {t("layout.light_theme_btn")}
           </button>
           <button
             className={`drop-setting-theme-btn ${
@@ -76,17 +77,17 @@ export const DropDownSettings = ({
             }`}
             onClick={() => handleTheme("dark")}
           >
-            تاریک
+            {t("layout.dark_theme_btn")}
           </button>
         </div>
         <div className="drop-setting-bottom">
           <div className="drop-setting-bottom-item">
             <SvgUser className="" />
-            <span>پروفایل</span>
+            <span>{t("drop_setting.profile_btn")}</span>
           </div>
           <div className="drop-setting-bottom-item">
             <SvgLogout className="" />
-            <span>خروج</span>
+            <span>{t("drop_setting.exit_btn")}</span>
           </div>
         </div>
       </div>

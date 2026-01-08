@@ -18,39 +18,42 @@ export type MenuItem = {
 
 export const menu: MenuItem[] = [
   {
-    title: "داشبورد",
+    title: "layout.dashboard_menu",
     icon: <SvgDashboard className="" />,
     path: "/p/dashboard",
   },
   {
-    title: "محصولات",
+    title: "layout.dashoboard_product",
     icon: <SvgApplication className="" />,
     submenu: [
-      { title: "مدیریت محصولات", path: "/p/product/management" },
-      { title: "افزودن محصولات", path: "/p/product/add" },
+      {
+        title: "layout.dashoboard_product_management",
+        path: "/p/product/management",
+      },
+      { title: "layout.dashoboard_product_add", path: "/p/product/add" },
     ],
   },
   {
-    title: "ابزار",
+    title: "layout.dashboard_tools",
     icon: <SvgTool className="" />,
     submenu: [
-      { title: "صفحه اول" },
-      { title: "صفحه دوم" },
-      { title: "صفحه سوم" },
+      { title: "layout.dashboard_tools_first" },
+      { title: "layout.dashboard_tools_second" },
+      { title: "layout.dashboard_tools_third" },
     ],
   },
   {
-    title: "نقشه",
+    title: "layout.dashboard_map",
     icon: <SvgMap className="" />,
     submenu: [
-      { title: "صفحه اول" },
-      { title: "صفحه دوم" },
-      { title: "صفحه سوم" },
+      { title: "layout.dashboard_map_first" },
+      { title: "layout.dashboard_map_second" },
+      { title: "layout.dashboard_map_third" },
     ],
   },
 
   {
-    title: "تنظیمات",
+    title: "layout.dashboard_setting",
     icon: <SvgSetting className="" />,
     path: "/p/settings",
   },

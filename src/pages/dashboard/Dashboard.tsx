@@ -10,7 +10,7 @@ export const Dashboard = () => {
   const { setTitlePage } = useLayoutStore();
 
   useEffect(() => {
-    setTitlePage("داشبورد");
+    setTitlePage("layout.dashboard_menu");
   }, [setTitlePage]);
 
   return (

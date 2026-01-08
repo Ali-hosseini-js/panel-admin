@@ -4,6 +4,7 @@ import DatePicker, { DateObject } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { useSearchParams } from "react-router-dom";
+import { t } from "i18next";
 
 type Status = "active" | "deactive" | "all";
 
@@ -79,7 +80,7 @@ export const ProductFilter = () => {
             value={filter.search}
             onChange={handleSearch}
             type="text"
-            placeholder="جستجو..."
+            placeholder={t("product_filter.search")}
           />
           <div>
             <SvgSearch className="" />
@@ -92,7 +93,7 @@ export const ProductFilter = () => {
               filter.status == "active" && "product-filter-status-btn-active"
             }`}
           >
-            فعال
+            {t("product_filter.active_btn")}
           </button>
           <button
             onClick={() => handleStatus("deactive")}
@@ -100,7 +101,7 @@ export const ProductFilter = () => {
               filter.status == "deactive" && "product-filter-status-btn-active"
             }`}
           >
-            غیر فعال
+            {t("product_filter.deactive_btn")}
           </button>
           <button
             onClick={() => handleStatus("all")}
@@ -108,7 +109,7 @@ export const ProductFilter = () => {
               filter.status == "all" && "product-filter-status-btn-active"
             }`}
           >
-            همه
+            {t("product_filter.all_btn")}
           </button>
         </div>
         <div className="product-filter-date">
@@ -118,7 +119,7 @@ export const ProductFilter = () => {
             locale={persian_fa}
             value={[filter.start, filter.end]}
             onChange={handleDate}
-            placeholder="انتخاب تاریخ"
+            placeholder={t("product_filter.date_picker_btn")}
           />
         </div>
       </div>

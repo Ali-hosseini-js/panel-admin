@@ -182,7 +182,7 @@
   border-radius: var(--br);
   background-color: var(--color-2);
   top: 0;
-  left: -200px;
+  inset-inline-end: -200px;
   opacity: 0;
   visibility: hidden;
   display: none;

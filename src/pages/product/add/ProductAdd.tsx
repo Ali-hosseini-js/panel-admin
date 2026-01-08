@@ -8,7 +8,7 @@ export const ProductAdd = () => {
   const { setTitlePage } = useLayoutStore();
 
   useEffect(() => {
-    setTitlePage("افزودن محصول");
+    setTitlePage("layout.dashoboard_product_add");
   }, [setTitlePage]);
 
   return (

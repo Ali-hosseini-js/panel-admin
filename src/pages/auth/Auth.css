@@ -50,7 +50,7 @@
   width: 50%;
   border-radius: 8px;
   text-align: center;
-  color: #fff;
+  color: var(--color-6);
   background-color: unset;
   border: none;
 }

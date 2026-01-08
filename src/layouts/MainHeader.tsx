@@ -5,6 +5,7 @@ import type { HandleSidebarProps } from "./types/handleProps.type";
 import { useState } from "react";
 import { DropDownSettings } from "./DropDownSettings";
 import { useLayoutStore } from "../store/LayoutStore";
+import { t } from "i18next";
 
 export const MainHeader = ({
   setHandleSidebar,
@@ -22,10 +23,10 @@ export const MainHeader = ({
           >
             <SvgMenu className="" />
           </button>
-          <p>{titlePage}</p>
+          <p>{t(titlePage)}</p>
         </div>
         <form className="main-header-center">
-          <input placeholder="جستجو کنید" />
+          <input placeholder={t("product_filter.search")} />
           <button>
             <SvgSearch className="" />
           </button>

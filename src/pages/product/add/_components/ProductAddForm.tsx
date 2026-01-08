@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { object, string, number, array } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { t } from "i18next";
 
 type ToolType = {
   name: string;
@@ -69,11 +70,11 @@ export const ProductAddForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="product-form">
       <div className="product-form-item">
-        <p>عنوان محصول</p>
+        <p>{t("product_add_form.product_name_label")}</p>
         <input
           {...register("title")}
           className="product-form-item-inp"
-          placeholder="نام محصول را وارد کنید."
+          placeholder={t("product_add_form.product_name_placeholder")}
         />
         {errors.title && (
           <span className="product-form-item-error">
@@ -83,12 +84,12 @@ export const ProductAddForm = () => {
       </div>
 
       <div className="product-form-item">
-        <p>قیمت محصول</p>
+        <p> {t("product_add_form.product_price_label")}</p>
         <input
           {...register("price")}
           type="number"
           className="product-form-item-inp"
-          placeholder="قیمت محصول را وارد کنید."
+          placeholder={t("product_add_form.product_price_placeholder")}
         />
         {errors.price && (
           <span className="product-form-item-error">
@@ -98,12 +99,12 @@ export const ProductAddForm = () => {
       </div>
 
       <div className="product-form-item">
-        <p>موجودی محصول</p>
+        <p> {t("product_add_form.product_quantity_label")}</p>
         <input
           {...register("count")}
           type="number"
           className="product-form-item-inp"
-          placeholder="موجودی محصول را وارد کنید."
+          placeholder={t("product_add_form.product_quantity_placeholder")}
         />
         {errors.count && (
           <span className="product-form-item-error">
@@ -113,7 +114,7 @@ export const ProductAddForm = () => {
       </div>
 
       <div className="product-form-item">
-        <p>ویژگی های محصول</p>
+        <p>{t("product_add_form.product_specifications_label")}</p>
         {fields.map((item, index) => (
           <div key={item.id} className="product-form-dynamic">
             <div className="product-form-dynamic-item">
@@ -133,7 +134,7 @@ export const ProductAddForm = () => {
               )}
             </div>
             <button type="button" onClick={() => remove(index)}>
-              حذف
+              {t("product_add_form.product_specifications_delete_btn")}
             </button>
           </div>
         ))}{" "}
@@ -142,12 +143,12 @@ export const ProductAddForm = () => {
           type="button"
           onClick={() => append({ name: "", value: "" })}
         >
-          افزودن ویژگی جدید{" "}
+          {t("product_add_form.product_specifications_add_btn")}
         </button>
       </div>
 
       <div className="product-form-item">
-        <p>تصویر محصول</p>
+        <p> {t("product_add_form.product_image_label")}</p>
         <input
           {...register("image")}
           type="file"
@@ -164,7 +165,9 @@ export const ProductAddForm = () => {
         />
       )}
 
-      <button className="product-form-btn">افزودن</button>
+      <button className="product-form-btn">
+        {t("product_add_form.add_btn")}
+      </button>
     </form>
   );
 };

@@ -5,7 +5,7 @@ export const Settings = () => {
   const { setTitlePage } = useLayoutStore();
 
   useEffect(() => {
-    setTitlePage("تنظیمات");
+    setTitlePage("layout.dashboard_setting");
   }, [setTitlePage]);
 
   return (

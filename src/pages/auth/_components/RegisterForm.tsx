@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { SvgEmail } from "../../../icons/src/SvgEmail";
 import { SvgPassword } from "../../../icons/src/SvgPassword";
 import { SvgUser } from "../../../icons/src/SvgUser";
+import { t } from "i18next";
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -17,20 +18,20 @@ export const RegisterForm = () => {
           <div className="">
             <SvgUser className="" />
           </div>
-          <input type="text" placeholder="نام خود را وارد کنید." />
+          <input type="text" placeholder={t("auth.name_input")} />
         </label>
 
         <label>
           <div className="">
             <SvgEmail className="" />
           </div>
-          <input type="email" placeholder="ایمیل خود را وارد کنید." />
+          <input type="email" placeholder={t("auth.email_input")} />
         </label>
         <label>
           <div className="">
             <SvgPassword className="" />
           </div>
-          <input type="password" placeholder="پسورد خود را وارد کنید." />
+          <input type="password" placeholder={t("auth.password_input")} />
         </label>
 
         <button
@@ -38,7 +39,7 @@ export const RegisterForm = () => {
           onClick={() => handleRoute()}
           className="auth-form-btn"
         >
-          ثبت نام
+          {t("auth.signup_btn")}{" "}
         </button>
       </form>
     </>

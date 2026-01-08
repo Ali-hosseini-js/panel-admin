@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import ImgProfile from "../assets/media/profile.jpeg";
 
 export const ProfileSidebar = () => {
@@ -12,7 +13,7 @@ export const ProfileSidebar = () => {
               <span>@Ali-Hosseini-js</span>
             </div>
           </div>
-          <button>ویرایش پروفایل</button>
+          <button>{t("layout.edit_profile_btn")}</button>
         </div>
       </div>
     </>

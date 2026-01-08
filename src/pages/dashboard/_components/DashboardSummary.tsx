@@ -12,8 +12,8 @@ export const DashboardSummary = () => {
               <SvgDashboard className="" />
             </div>
             <div className="dash-right-summary-item-description">
-              <p>{t("sale")}</p>
-              <h4>120,000 تومان</h4>
+              <p>{t("dashboard.sale")}</p>
+              <h4>120,000 {t("utils.toman")}</h4>
               <span>25%</span>
             </div>
           </div>

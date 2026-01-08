@@ -4,10 +4,11 @@ import DataTable, { type TableColumn } from "react-data-table-component";
 import "./ProductManagement.css";
 import { SvgPlus } from "../../../icons/src/SvgPlus";
 import { ProductFilter } from "./_components/ProductFilter";
+import { useTranslation } from "react-i18next";
 
 type ProductsType = {
   id: number;
-  name: string;
+  name?: string | React.ReactNode;
   img: string;
   price: string;
   count: string;
@@ -16,17 +17,62 @@ type ProductsType = {
 
 export const ProductManagement = () => {
   const { setTitlePage } = useLayoutStore();
+  const { t } = useTranslation();
 
   useEffect(() => {
-    setTitlePage("مدیریت محصولات");
+    setTitlePage("layout.dashoboard_product_management");
   }, [setTitlePage]);
+
+  const columns: TableColumn<ProductsType>[] = [
+    {
+      name: t("product_mangement_table.product_name"),
+      cell: (row) => (
+        <div className="product-list-name">
+          <img src={row.img} />
+          <span>{row.name}</span>
+        </div>
+      ),
+    },
+    {
+      name: t("product_mangement_table.product_price"),
+      selector: (row) => row.price,
+      sortable: true,
+    },
+
+    {
+      name: t("product_mangement_table.product_quantity"),
+      selector: (row) => row.count,
+      sortable: true,
+    },
+    {
+      name: t("product_mangement_table.product_status"),
+      cell: (row) => (
+        <>
+          {row.status === "enable" && (
+            <span className="product-list-tag-enable">فعال</span>
+          )}
+          {row.status === "disable" && (
+            <span className="product-list-tag-disable">غیر فعال</span>
+          )}
+        </>
+      ),
+    },
+    {
+      name: t("product_mangement_table.product_edit"),
+      cell: () => (
+        <button className="product-list-btn">
+          {t("product_mangement_table.product_edit")}
+        </button>
+      ),
+    },
+  ];
 
   return (
     <>
       <div className="product-head">
         <button>
           <SvgPlus className="" />
-          <span>افزودن محصول</span>
+          <span>{t("products.product_btn_add")}</span>
         </button>
       </div>
       <ProductFilter />
@@ -40,46 +86,6 @@ export const ProductManagement = () => {
     </>
   );
 };
-
-const columns: TableColumn<ProductsType>[] = [
-  {
-    name: "نام محصولات",
-    cell: (row) => (
-      <div className="product-list-name">
-        <img src={row.img} />
-        <span>{row.name}</span>
-      </div>
-    ),
-  },
-  {
-    name: "قیمت محصول",
-    selector: (row) => row.price,
-    sortable: true,
-  },
-
-  {
-    name: "تعداد",
-    selector: (row) => row.count,
-    sortable: true,
-  },
-  {
-    name: "وضعیت",
-    cell: (row) => (
-      <>
-        {row.status === "enable" && (
-          <span className="product-list-tag-enable">فعال</span>
-        )}
-        {row.status === "disable" && (
-          <span className="product-list-tag-disable">غیر فعال</span>
-        )}
-      </>
-    ),
-  },
-  {
-    name: "ویرایش محصول",
-    cell: () => <button className="product-list-btn">ویرایش</button>,
-  },
-];
 
 const products: ProductsType[] = [
   {
